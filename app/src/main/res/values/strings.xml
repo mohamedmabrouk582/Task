@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="socketTimeout">Socket Time Out</string>
+    <string name="jsonError">Json parsing Error</string>
+    <string name="connectionError">Connection Error</string>
+    <string name="serverError">Server Error</string>
+</resources>

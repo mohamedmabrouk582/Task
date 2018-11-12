@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="taskVm"
+            type="com.caplease.com.task.viewModel.tasks.TasksViewModel"/>
+    </data>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <android.support.v7.widget.RecyclerView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/tasks_recycler_view"
+             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+             />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_margin="@dimen/_9sdp"
+        android:layout_gravity="bottom|end"
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v) ->taskVm.addTask(v)}"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</FrameLayout>
+</layout>
