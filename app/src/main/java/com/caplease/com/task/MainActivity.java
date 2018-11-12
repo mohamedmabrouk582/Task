@@ -15,6 +15,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void iniViews() {
+
      replaceFragment(TasksFragment.getFragment(),R.id.Fragment_Container,"TasksFragment",false);
     }
 }
