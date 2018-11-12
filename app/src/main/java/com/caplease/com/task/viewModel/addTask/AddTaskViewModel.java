@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -47,7 +48,7 @@ public class AddTaskViewModel<v extends AddTaskView> extends BaseViewModel<v> im
     }
 
     @BindingAdapter({"taskWatcher","error"})
-    public static void taskText(EditText editText, TextWatcher watcher,ObservableField<String> error){
+    public static void taskText(TextInputEditText editText, TextWatcher watcher, ObservableField<String> error){
         editText.addTextChangedListener(watcher);
         editText.setError(error.get());
     }
