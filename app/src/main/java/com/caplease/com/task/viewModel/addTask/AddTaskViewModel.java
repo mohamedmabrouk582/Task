@@ -35,6 +35,7 @@ public class AddTaskViewModel<v extends AddTaskView> extends BaseViewModel<v> im
     public AddTaskViewModel(AddTaskFragment application, TaskDbOperation dbOperation) {
         super(application.getActivity().getApplication());
         this.dbOperation = dbOperation;
+        fragment=application;
     }
 
     public ObservableField<String> getDes() {
@@ -71,7 +72,10 @@ public class AddTaskViewModel<v extends AddTaskView> extends BaseViewModel<v> im
     @Override
     public void addTask(String des) {
         try {
-            Log.d("inserrrr",dbOperation.insertTask(new Task(des))+"");
+            if (dbOperation.insertTask(new Task(des))>0){
+                fragment.getActivity().onBackPressed();
+            }
+
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
