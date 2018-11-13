@@ -8,6 +8,7 @@ package com.caplease.com.task.ui.fragment;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
+import android.os.Bundle;
 
 import com.caplease.com.task.R;
 import com.caplease.com.task.app.MyApp;
@@ -25,6 +26,9 @@ import com.caplease.com.task.views.TasksView;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 public class TasksFragment extends BaseFragment implements TasksView, TaskAdapter.TaskListener {
     @Inject public TaskDbOperation operation;
@@ -65,6 +69,10 @@ public class TasksFragment extends BaseFragment implements TasksView, TaskAdapte
 
     @Override
     public void onClick(Task item, int pos) {
-        replaceFragment(ShowTaskFragment.getFragment(item), R.id.Fragment_Container,"ShowTaskFragment",true);
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("taskInfo",item);
+        final NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+        navController.navigate(R.id.action_tasksFragment_to_showTaskFragment,bundle);
+       // replaceFragment(ShowTaskFragment.getFragment(item), R.id.Fragment_Container,"ShowTaskFragment",true);
     }
 }

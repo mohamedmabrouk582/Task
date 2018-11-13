@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.caplease.com.task.ui.fragment.TasksFragment"
+        android:label="TasksFragment">
+        <action
+            android:id="@+id/action_tasksFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_showTaskFragment"
+            app:destination="@id/showTaskFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.caplease.com.task.ui.fragment.AddTaskFragment"
+        android:label="AddTaskFragment" />
+    <fragment
+        android:id="@+id/showTaskFragment"
+        android:name="com.caplease.com.task.ui.fragment.ShowTaskFragment"
+        android:label="ShowTaskFragment" >
+        <argument
+            android:name="taskInfo"
+            app:argType="reference" />
+    </fragment>
+
+</navigation>

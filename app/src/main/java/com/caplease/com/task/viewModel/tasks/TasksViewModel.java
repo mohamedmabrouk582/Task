@@ -12,6 +12,10 @@ import com.caplease.com.task.ui.fragment.TasksFragment;
 import com.caplease.com.task.viewModel.base.BaseViewModel;
 import com.caplease.com.task.views.TasksView;
 
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+
 /*
  * Created By mabrouk on 12/11/18
  * Task
@@ -37,8 +41,8 @@ public class TasksViewModel<v extends TasksView> extends BaseViewModel<v> implem
     }
 
     public void addTask(View view){
-        fragment.replaceFragment(AddTaskFragment.getFragment(), R.id.Fragment_Container,"AddTaskFragment",true);
-
+        final NavController navController = Navigation.findNavController(fragment.getActivity(), R.id.nav_host_fragment);
+        navController.navigate(R.id.action_tasksFragment_to_addTaskFragment);
     }
 
 

@@ -32,6 +32,6 @@ public class ShowTaskFragment extends BaseFragment {
     @Override
     public void iniViews() {
      showTaskBinding= DataBindingUtil.bind(view);
-     showTaskBinding.setTasks(getArguments().getParcelable(TASK));
+     showTaskBinding.setTasks(getArguments().getParcelable("taskInfo"));
     }
 }
